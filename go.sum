@@ -1,0 +1,4 @@
+github.com/Trey2k/RLBotGo v0.0.0-20210719171657-72bec101af44 h1:6ptPvI0C4lMPIg01Ly5ix52kMBu0CXQiFfWM0KimS4s=
+github.com/Trey2k/RLBotGo v0.0.0-20210719171657-72bec101af44/go.mod h1:gLV280pEfvXl5d8pJ13xGXToM8+IQPBElrhRMiu91KI=
+github.com/google/flatbuffers v2.0.0+incompatible h1:dicJ2oXwypfwUGnB2/TYWYEKiuk9eYQlQO/AnOHl5mI=
+github.com/google/flatbuffers v2.0.0+incompatible/go.mod h1:1AeVuKshWv4vARoZatz6mlQ0JxURH0Kv5+zNeJKJCa8=
