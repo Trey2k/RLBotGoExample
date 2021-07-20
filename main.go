@@ -1,5 +1,3 @@
-// socket client for golang
-// https://golangr.com
 package main
 
 import (
