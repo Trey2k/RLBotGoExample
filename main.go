@@ -15,11 +15,11 @@ func tick(gameState *RLBot.GameState, socket *RLBot.Socket) {
 		PlayerInput := &RLBot.PlayerInput{
 			PlayerIndex: 0,
 			ControllerState: RLBot.ControllerState{
-				Throttle:  rand.Float32(),
-				Steer:     rand.Float32(),
-				Yaw:       rand.Float32(),
-				Pitch:     rand.Float32(),
-				Roll:      rand.Float32(),
+				Throttle:  float32(rand.Int31n(10 - -10)+-10) / 100,
+				Steer:     float32(rand.Int31n(10 - -10)+-10) / 100,
+				Yaw:       float32(rand.Int31n(10 - -10)+-10) / 100,
+				Pitch:     float32(rand.Int31n(10 - -10)+-10) / 100,
+				Roll:      float32(rand.Int31n(10 - -10)+-10) / 100,
 				Jump:      rand.Int31n(1) == 1,
 				Boost:     rand.Int31n(1) == 1,
 				Handbrake: rand.Int31n(1) == 1,
