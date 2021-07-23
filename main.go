@@ -9,13 +9,14 @@ import (
 var lastTouch float32
 var totalTouches int = 0
 
-// Tick handler takes in a GameState which contains the gameTickPacket, ballPredidctions, fieldInfo and matchSettings
-func getInput(gameState *RLBot.GameState, rlBot *RLBot.RLBot) *RLBot.PlayerInput {
-	// Send a random controller state every time the ball is touched
+// getInput takes in a GameState which contains the gameTickPacket, ballPredidctions, fieldInfo and matchSettings
+// it also takes in the RLBot object. And returns a PlayerInput
 
+func getInput(gameState *RLBot.GameState, rlBot *RLBot.RLBot) *RLBot.PlayerInput {
 	PlayerInput := &RLBot.PlayerInput{}
 	PlayerInput.PlayerIndex = 0
 
+	// Count ball touches up to 10 and on 11 clear the messages and jump
 	wasjustTouched := false
 	if gameState.GameTick.Ball.LatestTouch.GameSeconds != 0 && lastTouch != gameState.GameTick.Ball.LatestTouch.GameSeconds {
 		totalTouches++
@@ -24,6 +25,7 @@ func getInput(gameState *RLBot.GameState, rlBot *RLBot.RLBot) *RLBot.PlayerInput
 	}
 
 	if wasjustTouched && totalTouches <= 10 {
+		// DebugMessage is a helper function to let you quickly get debug text on screen. it will autmaicly place it so text will not overlap
 		rlBot.DebugMessageAdd(fmt.Sprintf("The ball was touched %d times", totalTouches))
 		PlayerInput.ControllerState.Jump = false
 	} else if wasjustTouched && totalTouches > 10 {
