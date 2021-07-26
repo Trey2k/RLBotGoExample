@@ -12,9 +12,8 @@ var totalTouches int = 0
 // getInput takes in a GameState which contains the gameTickPacket, ballPredidctions, fieldInfo and matchSettings
 // it also takes in the RLBot object. And returns a PlayerInput
 
-func getInput(gameState *RLBot.GameState, rlBot *RLBot.RLBot) *RLBot.PlayerInput {
-	PlayerInput := &RLBot.PlayerInput{}
-	PlayerInput.PlayerIndex = 0
+func getInput(gameState *RLBot.GameState, rlBot *RLBot.RLBot) *RLBot.ControllerState {
+	PlayerInput := &RLBot.ControllerState{}
 
 	// Count ball touches up to 10 and on 11 clear the messages and jump
 	wasjustTouched := false
@@ -27,11 +26,11 @@ func getInput(gameState *RLBot.GameState, rlBot *RLBot.RLBot) *RLBot.PlayerInput
 	if wasjustTouched && totalTouches <= 10 {
 		// DebugMessage is a helper function to let you quickly get debug text on screen. it will autmaicly place it so text will not overlap
 		rlBot.DebugMessageAdd(fmt.Sprintf("The ball was touched %d times", totalTouches))
-		PlayerInput.ControllerState.Jump = false
+		PlayerInput.Jump = false
 	} else if wasjustTouched && totalTouches > 10 {
 		rlBot.DebugMessageClear()
 		totalTouches = 0
-		PlayerInput.ControllerState.Jump = true
+		PlayerInput.Jump = true
 	}
 	return PlayerInput
 
