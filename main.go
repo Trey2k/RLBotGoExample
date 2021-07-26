@@ -39,7 +39,7 @@ func getInput(gameState *RLBot.GameState, rlBot *RLBot.RLBot) *RLBot.ControllerS
 func main() {
 
 	// connect to RLBot
-	rlBot, err := RLBot.InitConnection(23234)
+	rlBot, err := RLBot.Connect(23234)
 	if err != nil {
 		panic(err)
 	}
