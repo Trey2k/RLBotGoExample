@@ -51,6 +51,7 @@ func main() {
 	}
 
 	// Set our tick handler
-	rlBot.SetGetInput(getInput)
+	err = rlBot.SetGetInput(getInput)
+	fmt.Println(err.Error())
 
 }
